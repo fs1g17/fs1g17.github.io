@@ -1,4 +1,5 @@
 import React from "react";
+import "./main.css";
 
 import { createTheme } from "@mui/material/styles";
 
@@ -50,56 +51,71 @@ declare module "@mui/material/Typography" {
 
 export const theme = createTheme({
   typography: {
+    fontFamily: "Open Sans",
     h1: {
+      fontFamily: "Open Sans",
       fontSize: 80,
       fontWeight: "bold",
     },
     h2: {
+      fontFamily: "Open Sans",
       fontSize: 60,
       fontWeight: "bold",
     },
     h3: {
+      fontFamily: "Open Sans",
       fontSize: 30,
       fontWeight: "bold",
     },
     h4: {
+      fontFamily: "Open Sans",
       fontSize: 24,
       fontWeight: "bold",
     },
     large: {
+      fontFamily: "Open Sans",
       fontSize: 24,
     },
     medeium: {
+      fontFamily: "Open Sans",
       fontSize: 20,
     },
     caption: {
+      fontFamily: "Open Sans",
       fontSize: 18,
       textTransform: "uppercase",
     },
     normal: {
+      fontFamily: "Open Sans",
       fontSize: 16,
     },
     small: {
+      fontFamily: "Open Sans",
       fontSize: 12,
     },
     largeSemibold: {
+      fontFamily: "Open Sans",
       fontSize: 24,
       fontWeight: "medium",
     },
     medeiumSemibold: {
+      fontFamily: "Open Sans",
       fontSize: 20,
       fontWeight: "medium",
     },
     captionSemibold: {
+      fontFamily: "Open Sans",
       fontSize: 18,
       fontWeight: "medium",
       textTransform: "uppercase",
     },
     normalSemibold: {
+      fontFamily: "Open Sans",
       fontSize: 16,
       fontWeight: "medium",
     },
     smallSemibold: {
+      fontFamily: "Open Sans",
       fontSize: 12,
       fontWeight: "medium",
     },
