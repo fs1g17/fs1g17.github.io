@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
 
 import { theme } from "./Theme";
 import { Navbar } from "./components";
@@ -14,6 +15,7 @@ import Shop from "./screens/Shop/Shop";
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
         <Navbar />
         <Routes>
