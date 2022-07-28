@@ -45,11 +45,6 @@ const Navbar: FC = () => {
               Blog
             </Typography>
           </NavbarLink>
-          <NavbarLink to="/newsletter">
-            <Typography variant="largeSemibold" color={getColor("/newsletter")}>
-              Newsletter
-            </Typography>
-          </NavbarLink>
           <NavbarLink to="/shop">
             <Typography variant="largeSemibold" color={getColor("/shop")}>
               Shop
