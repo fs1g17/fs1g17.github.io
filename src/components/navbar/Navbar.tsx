@@ -2,12 +2,28 @@ import React, { FC } from "react";
 import { Link, LinkProps, useLocation } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
-import { AppBar, Typography, Toolbar, useTheme, Box } from "@mui/material";
+import {
+  AppBar,
+  AppBarProps,
+  Typography,
+  Toolbar,
+  useTheme,
+  Box,
+} from "@mui/material";
 
-const NavbarLink = styled(Link)<LinkProps>(({ theme }) => ({
+const StyledLink = styled(Link)<LinkProps>(({ theme }) => ({
   marginLeft: 10,
   marginRight: 10,
   textDecoration: "none",
+}));
+
+const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
+  position: "fixed",
+  zIndex: "10000",
+  backgroundColor: "primary.main",
+  height: 60,
+  width: "100%",
+  margin: 0,
 }));
 
 const Navbar: FC = () => {
@@ -23,47 +39,36 @@ const Navbar: FC = () => {
   };
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        backgroundColor: "primary.main",
-        height: 60,
-        width: "100%",
-        margin: 0,
-      }}
-    >
+    <StyledAppBar>
       <Toolbar>
         <Typography variant="h4">Navbar</Typography>
         <Box sx={{ marginLeft: "auto" }}>
-          <NavbarLink to="/">
-            <Typography variant="largeSemibold" color={getColor("/")}>
-              About
-            </Typography>
-          </NavbarLink>
-          <NavbarLink to="/blog">
-            <Typography variant="largeSemibold" color={getColor("/blog")}>
-              Blog
-            </Typography>
-          </NavbarLink>
-          <NavbarLink to="/newsletter">
-            <Typography variant="largeSemibold" color={getColor("/newsletter")}>
-              Newsletter
-            </Typography>
-          </NavbarLink>
-          <NavbarLink to="/shop">
-            <Typography variant="largeSemibold" color={getColor("/shop")}>
-              Shop
-            </Typography>
-          </NavbarLink>
-          <NavbarLink to="/contact">
-            <Typography variant="largeSemibold" color={getColor("/contact")}>
-              Contact
-            </Typography>
-          </NavbarLink>
+          <NavbarLink path="/" label="About" color={getColor("/")} />
+          <NavbarLink path="/blog" label="Blog" color={getColor("/blog")} />
+          <NavbarLink path="/shop" label="Shop" color={getColor("/shop")} />
+          <NavbarLink
+            path="/contact"
+            label="Contact"
+            color={getColor("/contact")}
+          />
         </Box>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
+
+interface NavbarLinkProps {
+  path: string;
+  label: string;
+  color: string;
+}
+
+const NavbarLink: FC<NavbarLinkProps> = ({ path, label, color }) => (
+  <StyledLink to={path}>
+    <Typography variant="largeSemibold" color={color}>
+      {label}
+    </Typography>
+  </StyledLink>
+);
 
 export default Navbar;
