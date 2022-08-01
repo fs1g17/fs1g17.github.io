@@ -31,8 +31,6 @@ const Navbar: FC = () => {
   const location = useLocation();
 
   const getColor = (targetLocation: string) => {
-    console.log("location: ", location.pathname.toString());
-    console.log("targetLocation: ", targetLocation);
     return targetLocation === location.pathname.toString()
       ? theme.palette.secondary.main
       : "#FFFFFF";
