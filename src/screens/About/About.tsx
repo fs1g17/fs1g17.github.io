@@ -6,12 +6,11 @@ import {
   styled,
   Box,
   BoxProps,
-  Button,
-  ButtonProps,
 } from "@mui/material";
 
 import about1 from "../../static/images/about_1.png";
 import about2 from "../../static/images/about_2.png";
+import { NewsletterSignUp, RedButton } from "../../components";
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -37,12 +36,6 @@ const InfoBox = styled(Box)<BoxProps>(({ theme }) => ({
   marginLeft: "auto",
   marginRight: "auto",
   alignItems: "flex-end",
-}));
-
-const RedButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  borderRadius: 22,
-  backgroundColor: theme.palette.secondary.main,
-  marginTop: 48,
 }));
 
 const About: FC = () => {
@@ -126,11 +119,14 @@ const About: FC = () => {
         <CenteredBox>
           <WhiteText variant="h1">Are you ready?</WhiteText>
         </CenteredBox>
-        <RedButton>
-          <WhiteText variant="h3" marginX="48px">
+        <RedButton sx={{ marginTop: "16px" }}>
+          <Typography variant="h3" marginX="48px">
             LEARN MORE
-          </WhiteText>
+          </Typography>
         </RedButton>
+      </CenteredBox>
+      <CenteredBox marginBottom="200px">
+        <NewsletterSignUp />
       </CenteredBox>
     </>
   );
