@@ -6,8 +6,6 @@ import {
   styled,
   Box,
   BoxProps,
-  Button,
-  ButtonProps,
 } from "@mui/material";
 
 import about1 from "../../static/images/about_1.png";
