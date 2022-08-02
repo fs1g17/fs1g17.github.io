@@ -10,6 +10,9 @@ const ArticleColumn = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  "& > :first-child": {
+    marginTop: 80,
+  },
   "& > *:not(:last-child)": {
     marginBottom: 40,
   },
