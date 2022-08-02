@@ -53,9 +53,16 @@ const ArticleCard = (props: ArticleCardProps) => (
         justifyContent: "flex-end",
       }}
     >
-      <Button size="small" style={{ color: "red", fontSize: 14 }}>
-        Read More
-      </Button>
+      <a
+        href={props.readMoreUrl}
+        target="_blank"
+        rel="noreferrer"
+        style={{ textDecoration: "none" }}
+      >
+        <Button size="small" style={{ color: "red", fontSize: 14 }}>
+          Read More
+        </Button>
+      </a>
     </CardActions>
   </ResponsiveCard>
 );

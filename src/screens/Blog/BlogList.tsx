@@ -15,7 +15,12 @@ const ArticleColumn = styled("div")({
   },
 });
 
-type Article = { imgUrl: string; title: string; body: string };
+type Article = {
+  imgUrl: string;
+  title: string;
+  body: string;
+  readMoreUrl: string;
+};
 
 interface BlogListProps {
   articles: Article[];
@@ -38,7 +43,7 @@ const BlogList: FC<BlogListProps> = ({ articles }) => {
             imageUrl={article.imgUrl}
             title={article.title}
             body={article.body}
-            readMoreUrl=""
+            readMoreUrl={article.readMoreUrl}
           />
         ))}
       </ArticleColumn>

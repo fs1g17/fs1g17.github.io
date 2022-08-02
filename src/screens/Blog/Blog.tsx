@@ -2,7 +2,12 @@ import React, { useEffect, FC, useState } from "react";
 
 import BlogList from "./BlogList";
 
-export type Article = { imgUrl: string; title: string; body: string };
+export type Article = {
+  imgUrl: string;
+  title: string;
+  body: string;
+  readMoreUrl: string;
+};
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -35,6 +40,16 @@ const Blog: FC = () => {
             continue;
           }
 
+          const linkElement = articles[i].querySelector("link");
+          if (!linkElement) {
+            continue;
+          }
+
+          const readMoreUrl = linkElement.textContent;
+          if (!readMoreUrl) {
+            continue;
+          }
+
           const all = articles[i].querySelectorAll("*");
           const content = all[all.length - 1];
 
@@ -63,6 +78,7 @@ const Blog: FC = () => {
             imgUrl,
             title,
             body,
+            readMoreUrl,
           };
 
           loadedArticles.push(article);
