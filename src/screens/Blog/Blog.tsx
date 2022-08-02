@@ -1,9 +1,10 @@
-import React, { useEffect, FC } from "react";
+import React, { useEffect, FC, useState } from "react";
 
 import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { ArticleCard } from "../../components";
+import { ArticleCardProps } from "../../components/article-card/ArticleCard";
 
 const ArticleColumn = styled("div")({
   width: "100%",
@@ -15,7 +16,15 @@ const ArticleColumn = styled("div")({
   },
 });
 
+interface Article {
+  imgUrl: string;
+  title: string;
+  body: string;
+}
+
 const Blog: FC = () => {
+  const [articles, setArticles] = useState<Article[]>([]);
+
   const mediumUrl =
     "https://cors-anywhere.herokuapp.com/https://medium.com/feed/@fedor.selenskiy";
 
@@ -32,15 +41,54 @@ const Blog: FC = () => {
         const articles = node.querySelectorAll("item");
 
         for (let i = 0; i < articles.length; i++) {
-          const title = articles[i].querySelector("title");
-          console.log(title ? title.textContent : "DIDN'T WORK");
+          const titleElement = articles[i].querySelector("title");
+          if (!titleElement) {
+            continue;
+          }
+
+          const title = titleElement.textContent;
+          if (!title) {
+            continue;
+          }
+
+          const all = articles[i].querySelectorAll("*");
+          const content = all[all.length - 1];
+
+          if (!content.textContent) {
+            continue;
+          }
+
+          var parsedContent = new DOMParser().parseFromString(
+            content.textContent,
+            "text/xml"
+          ).documentElement;
+
+          const img = parsedContent.querySelector("img");
+          if (!img) {
+            continue;
+          }
+
+          const imgUrl = img.getAttribute("src");
+          if (!imgUrl) {
+            continue;
+          }
+
+          const body = content.textContent.substring(0, 100);
+
+          const article: Article = {
+            imgUrl,
+            title,
+            body,
+          };
+
+          setArticles((articles) => articles.concat([article]));
         }
       } catch (error) {}
     };
 
     console.log("inside useEffect");
     doFetch();
-  });
+  }, []);
 
   return (
     <Container
@@ -52,7 +100,7 @@ const Blog: FC = () => {
       }}
     >
       <ArticleColumn>
-        <ArticleCard
+        {/* <ArticleCard
           imageUrl="https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
           title="Best Fruit & Veggies"
           body="Rich in both soluble and insoluble fiber, such as pectin, hemicellulose, and cellulose, 
@@ -69,7 +117,15 @@ const Blog: FC = () => {
         compounds found in plants. Sounds like a fancy new supplement? Actually, this is a 
         very common fruit you’re not eating enough of"
           readMoreUrl=""
-        />
+        /> */}
+        {articles.map((article) => (
+          <ArticleCard
+            imageUrl={article.imgUrl}
+            title={article.title}
+            body={article.body}
+            readMoreUrl=""
+          />
+        ))}
       </ArticleColumn>
     </Container>
   );

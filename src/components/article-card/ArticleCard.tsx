@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-interface ArticleCardProps {
+export interface ArticleCardProps {
   imageUrl: string;
   title: string;
   body: string;
@@ -22,7 +22,7 @@ const ResponsiveCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-export const ArticleCard = (props: ArticleCardProps) => (
+const ArticleCard = (props: ArticleCardProps) => (
   <ResponsiveCard>
     <CardActionArea style={{ background: "black" }}>
       <CardMedia
@@ -59,3 +59,5 @@ export const ArticleCard = (props: ArticleCardProps) => (
     </CardActions>
   </ResponsiveCard>
 );
+
+export default ArticleCard;
