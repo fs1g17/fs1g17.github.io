@@ -1,3 +1,4 @@
+import exp from "constants";
 import React, { useEffect, FC, useState } from "react";
 
 import BlogList from "./BlogList";
@@ -50,29 +51,61 @@ const Blog: FC = () => {
             continue;
           }
 
-          const all = articles[i].querySelectorAll("*");
-          const content = all[all.length - 1];
+          if (!articles[i]) {
+            continue;
+          }
 
+          var encodedContent = articles[i].getElementsByTagNameNS(
+            "*",
+            "encoded"
+          );
+          if (!encodedContent) {
+            continue;
+          }
+
+          if (!encodedContent.item(0)) {
+            continue;
+          }
+
+          var content = encodedContent.item(0);
+          if (!content) {
+            continue;
+          }
+
+          console.log("content: ", content);
           if (!content.textContent) {
             continue;
           }
 
-          var parsedContent = new DOMParser().parseFromString(
+          const parser = new DOMParser();
+          const parsedContent = parser.parseFromString(
             content.textContent,
-            "text/xml"
-          ).documentElement;
+            "text/html"
+          );
 
           const img = parsedContent.querySelector("img");
           if (!img) {
+            console.log("no img");
             continue;
           }
 
           const imgUrl = img.getAttribute("src");
           if (!imgUrl) {
+            console.log("no src");
             continue;
           }
 
-          const body = content.textContent.substring(0, 100);
+          const p = parsedContent.querySelector("p");
+          if (!p) {
+            console.log("no p");
+            return;
+          }
+
+          if (!p.textContent) {
+            continue;
+          }
+
+          const body = p.textContent.substring(0, 100);
 
           const article: Article = {
             imgUrl,
@@ -88,7 +121,6 @@ const Blog: FC = () => {
       } catch (error) {}
     };
 
-    console.log("inside useEffect");
     doFetch();
   }, []);
 
