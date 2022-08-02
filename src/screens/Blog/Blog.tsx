@@ -1,26 +1,8 @@
 import React, { useEffect, FC, useState } from "react";
 
-import { Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import BlogList from "./BlogList";
 
-import { ArticleCard } from "../../components";
-import { ArticleCardProps } from "../../components/article-card/ArticleCard";
-
-const ArticleColumn = styled("div")({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  "& > *:not(:last-child)": {
-    marginBottom: 40,
-  },
-});
-
-interface Article {
-  imgUrl: string;
-  title: string;
-  body: string;
-}
+export type Article = { imgUrl: string; title: string; body: string };
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -39,6 +21,8 @@ const Blog: FC = () => {
           "text/xml"
         ).documentElement;
         const articles = node.querySelectorAll("item");
+
+        const loadedArticles: Article[] = [];
 
         for (let i = 0; i < articles.length; i++) {
           const titleElement = articles[i].querySelector("title");
@@ -81,8 +65,10 @@ const Blog: FC = () => {
             body,
           };
 
-          setArticles((articles) => articles.concat([article]));
+          loadedArticles.push(article);
         }
+
+        setArticles(loadedArticles);
       } catch (error) {}
     };
 
@@ -90,45 +76,7 @@ const Blog: FC = () => {
     doFetch();
   }, []);
 
-  return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: 1,
-      }}
-    >
-      <ArticleColumn>
-        {/* <ArticleCard
-          imageUrl="https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
-          title="Best Fruit & Veggies"
-          body="Rich in both soluble and insoluble fiber, such as pectin, hemicellulose, and cellulose, 
-        they’re also a source of vitamin C and plant polyphenols, which are disease-fighting 
-        compounds found in plants. Sounds like a fancy new supplement? Actually, this is a 
-        very common fruit you’re not eating enough of"
-          readMoreUrl=""
-        />
-        <ArticleCard
-          imageUrl="https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
-          title="Best Fruit & Veggies"
-          body="Rich in both soluble and insoluble fiber, such as pectin, hemicellulose, and cellulose, 
-        they’re also a source of vitamin C and plant polyphenols, which are disease-fighting 
-        compounds found in plants. Sounds like a fancy new supplement? Actually, this is a 
-        very common fruit you’re not eating enough of"
-          readMoreUrl=""
-        /> */}
-        {articles.map((article) => (
-          <ArticleCard
-            imageUrl={article.imgUrl}
-            title={article.title}
-            body={article.body}
-            readMoreUrl=""
-          />
-        ))}
-      </ArticleColumn>
-    </Container>
-  );
+  return <BlogList articles={articles} />;
 };
 
 export default Blog;
