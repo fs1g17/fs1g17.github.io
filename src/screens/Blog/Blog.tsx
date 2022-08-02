@@ -1,4 +1,3 @@
-import exp from "constants";
 import React, { useEffect, FC, useState } from "react";
 
 import BlogList from "./BlogList";
@@ -32,24 +31,18 @@ const Blog: FC = () => {
 
         for (let i = 0; i < articles.length; i++) {
           const titleElement = articles[i].querySelector("title");
-          if (!titleElement) {
+          if (!titleElement || !titleElement.textContent) {
             continue;
           }
 
           const title = titleElement.textContent;
-          if (!title) {
-            continue;
-          }
 
           const linkElement = articles[i].querySelector("link");
-          if (!linkElement) {
+          if (!linkElement || !linkElement.textContent) {
             continue;
           }
 
           const readMoreUrl = linkElement.textContent;
-          if (!readMoreUrl) {
-            continue;
-          }
 
           if (!articles[i]) {
             continue;
@@ -59,21 +52,13 @@ const Blog: FC = () => {
             "*",
             "encoded"
           );
-          if (!encodedContent) {
-            continue;
-          }
 
-          if (!encodedContent.item(0)) {
+          if (!encodedContent || !encodedContent.item(0)) {
             continue;
           }
 
           var content = encodedContent.item(0);
-          if (!content) {
-            continue;
-          }
-
-          console.log("content: ", content);
-          if (!content.textContent) {
+          if (!content || !content.textContent) {
             continue;
           }
 
@@ -96,12 +81,8 @@ const Blog: FC = () => {
           }
 
           const p = parsedContent.querySelector("p");
-          if (!p) {
+          if (!p || !p.textContent) {
             console.log("no p");
-            return;
-          }
-
-          if (!p.textContent) {
             continue;
           }
 
