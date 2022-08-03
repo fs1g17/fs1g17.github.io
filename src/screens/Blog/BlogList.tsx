@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { ArticleCard } from "../../components";
+import { ArticleCard, ArticleCardSkeleton } from "../../components";
 
 const ArticleColumn = styled("div")({
   width: "100%",
@@ -30,6 +30,25 @@ interface BlogListProps {
 }
 
 const BlogList: FC<BlogListProps> = ({ articles }) => {
+  if (articles.length === 0) {
+    return (
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: 1,
+        }}
+      >
+        <ArticleColumn>
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
+        </ArticleColumn>
+      </Container>
+    );
+  }
   return (
     <Container
       sx={{
