@@ -16,25 +16,25 @@ const Shop: FC = () => {
       imageUrl: img1,
       title: "Online Coaching",
       body: "Personalised online coaching.",
-      url: "",
+      url: "/shop/online_coaching",
     },
     {
       imageUrl: img2,
       title: "App Membership",
       body: "Access to huge exercise library and a 3 month programme.",
-      url: "",
+      url: "/shop/app_membership",
     },
     {
       imageUrl: img3,
       title: "PT Sessions",
       body: "Full access to app + in person training sesisons",
-      url: "",
+      url: "/shop/sessions",
     },
     {
       imageUrl: img4,
       title: "Strength Camp",
       body: "32 week strength programme.",
-      url: "",
+      url: "/shop/strength_camp",
     },
   ];
 

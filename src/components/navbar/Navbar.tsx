@@ -31,7 +31,7 @@ const Navbar: FC = () => {
   const location = useLocation();
 
   const getColor = (targetLocation: string) => {
-    return targetLocation === location.pathname.toString()
+    return location.pathname.toString().includes(targetLocation)
       ? theme.palette.secondary.main
       : "#FFFFFF";
   };
@@ -41,7 +41,7 @@ const Navbar: FC = () => {
       <Toolbar>
         <Typography variant="h4">Navbar</Typography>
         <Box sx={{ marginLeft: "auto" }}>
-          <NavbarLink path="/" label="About" color={getColor("/")} />
+          <NavbarLink path="/about" label="About" color={getColor("/about")} />
           <NavbarLink path="/blog" label="Blog" color={getColor("/blog")} />
           <NavbarLink path="/shop" label="Shop" color={getColor("/shop")} />
           <NavbarLink

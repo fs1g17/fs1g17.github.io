@@ -39,7 +39,7 @@ const ShopCard = (props: ShopCardProps) => (
     </CardContent>
     <CardActions>
       <Box width="100%" display="flex" >
-        <RedButton sx={{ borderRadius: 0, marginLeft: 'auto' }}>Learn More</RedButton>
+        <RedButton sx={{ borderRadius: 0, marginLeft: 'auto' }} href={props.url}>Learn More</RedButton>
       </Box>
     </CardActions>
   </ResponsiveCard>
