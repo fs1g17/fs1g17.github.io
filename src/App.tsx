@@ -6,14 +6,14 @@ import { CssBaseline } from "@mui/material";
 
 import { theme } from "./Theme";
 import { Navbar } from "./components";
-import About from "./screens/About/About";
-import Blog from "./screens/Blog/Blog";
-import Contact from "./screens/Contact/Contact";
-import Shop from "./screens/Shop/Shop";
-import OnlineCoaching from "./screens/Shop/OnlineCoaching/OnlineCoaching";
-import AppMembership from "./screens/Shop/AppMembership/AppMembership";
-import Sessions from "./screens/Shop/Sessions/Sessions";
-import StrengthCamp from "./screens/Shop/StrengthCamp/StrengthCamp";
+import About from "./screens/about/About";
+import Blog from "./screens/blog/Blog";
+import Contact from "./screens/contact/Contact";
+import Shop from "./screens/shop/Shop";
+import OnlineCoaching from "./screens/shop/online-coaching/OnlineCoaching";
+import AppMembership from "./screens/shop/app-membership/AppMembership";
+import Sessions from "./screens/shop/sessions/Sessions";
+import StrengthCamp from "./screens/shop/strength-camp/StrengthCamp";
 
 function App() {
   return (
