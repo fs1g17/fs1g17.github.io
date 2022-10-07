@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link, LinkProps, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
 import {
@@ -8,14 +8,9 @@ import {
   Typography,
   Toolbar,
   useTheme,
-  Box,
+  Box
 } from "@mui/material";
-
-const StyledLink = styled(Link)<LinkProps>(({ theme }) => ({
-  marginLeft: 10,
-  marginRight: 10,
-  textDecoration: "none",
-}));
+import NavbarLink from "./NavbarLink";
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   position: "fixed",
@@ -25,6 +20,30 @@ const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   width: "100%",
   margin: 0,
 }));
+
+interface NavItem {
+  path: string;
+  label: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    path: "/about",
+    label: "About"
+  },
+  {
+    path: "/blog",
+    label: "Blog"
+  },
+  {
+    path: "/shop",
+    label: "Shop"
+  },
+  {
+    path: "/contact",
+    label: "Contact"
+  },
+]
 
 const Navbar: FC = () => {
   const theme = useTheme();
@@ -41,32 +60,13 @@ const Navbar: FC = () => {
       <Toolbar>
         <Typography variant="h4">Navbar</Typography>
         <Box sx={{ marginLeft: "auto" }}>
-          <NavbarLink path="/about" label="About" color={getColor("/about")} />
-          <NavbarLink path="/blog" label="Blog" color={getColor("/blog")} />
-          <NavbarLink path="/shop" label="Shop" color={getColor("/shop")} />
-          <NavbarLink
-            path="/contact"
-            label="Contact"
-            color={getColor("/contact")}
-          />
+          {navItems.map(({ path, label }) => (
+            <NavbarLink path={path} label={label} color={getColor(path)} />
+          ))}
         </Box>
       </Toolbar>
     </StyledAppBar>
   );
 };
-
-interface NavbarLinkProps {
-  path: string;
-  label: string;
-  color: string;
-}
-
-const NavbarLink: FC<NavbarLinkProps> = ({ path, label, color }) => (
-  <StyledLink to={path}>
-    <Typography variant="largeSemibold" color={color}>
-      {label}
-    </Typography>
-  </StyledLink>
-);
 
 export default Navbar;
