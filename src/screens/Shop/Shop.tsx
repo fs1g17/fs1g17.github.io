@@ -1,7 +1,5 @@
-import { Box } from '@mui/material';
-import { width } from '@mui/system';
 import React, { FC } from 'react';
-import { ShopCard, ShopCardProps } from '../../components';
+import { ShopCardProps } from '../../components';
 
 import img1 from '../../static/images/shop-card-img-1.png';
 import img2 from '../../static/images/shop-card-img-2.png';

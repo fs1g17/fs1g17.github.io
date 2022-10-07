@@ -10,7 +10,8 @@ import {
 
 import about1 from "../../static/images/about_1.png";
 import about2 from "../../static/images/about_2.png";
-import { NewsletterSignUp, RedButton } from "../../components";
+import { RedButton } from "../../components";
+import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -126,7 +127,7 @@ const About: FC = () => {
         </RedButton>
       </CenteredBox>
       <CenteredBox marginBottom="200px">
-        <NewsletterSignUp />
+        <MailChimpFormContainer />
       </CenteredBox>
     </>
   );

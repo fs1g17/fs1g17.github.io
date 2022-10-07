@@ -16,7 +16,7 @@ import Sessions from "./screens/shop/sessions/Sessions";
 import StrengthCamp from "./screens/shop/strength-camp/StrengthCamp";
 
 function App() {
-  return (
+    return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
