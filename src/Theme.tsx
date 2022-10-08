@@ -2,34 +2,35 @@ import React from "react";
 import "./main.css";
 
 import { createTheme } from "@mui/material/styles";
+import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
-    large: React.CSSProperties;
-    medeium: React.CSSProperties;
-    caption: React.CSSProperties;
-    normal: React.CSSProperties;
-    small: React.CSSProperties;
+    large: TypographyStyleOptions;
+    medeium: TypographyStyleOptions;
+    caption: TypographyStyleOptions;
+    normal: TypographyStyleOptions;
+    small: TypographyStyleOptions;
 
-    largeSemibold: React.CSSProperties;
-    medeiumSemibold: React.CSSProperties;
-    captionSemibold: React.CSSProperties;
-    normalSemibold: React.CSSProperties;
-    smallSemibold: React.CSSProperties;
+    largeSemibold: TypographyStyleOptions;
+    medeiumSemibold: TypographyStyleOptions;
+    captionSemibold: TypographyStyleOptions;
+    normalSemibold: TypographyStyleOptions;
+    smallSemibold: TypographyStyleOptions;
   }
 
   interface TypographyVariantsOptions {
-    large?: React.CSSProperties;
-    medeium?: React.CSSProperties;
-    caption?: React.CSSProperties;
-    normal?: React.CSSProperties;
-    small?: React.CSSProperties;
+    large?: TypographyStyleOptions;
+    medeium?: TypographyStyleOptions;
+    caption?: TypographyStyleOptions;
+    normal?: TypographyStyleOptions;
+    small?: TypographyStyleOptions;
 
-    largeSemibold?: React.CSSProperties;
-    medeiumSemibold?: React.CSSProperties;
-    captionSemibold?: React.CSSProperties;
-    normalSemibold?: React.CSSProperties;
-    smallSemibold?: React.CSSProperties;
+    largeSemibold?: TypographyStyleOptions;
+    medeiumSemibold?: TypographyStyleOptions;
+    captionSemibold?: TypographyStyleOptions;
+    normalSemibold?: TypographyStyleOptions;
+    smallSemibold?: TypographyStyleOptions;
   }
 }
 
@@ -49,74 +50,239 @@ declare module "@mui/material/Typography" {
   }
 }
 
+/*
+xs, extra-small: 0px
+sm, small: 600px
+md, medium: 900px
+lg, large: 1200px
+xl, extra-large: 1536px
+https://mui.com/material-ui/customization/breakpoints/
+
+1rem = 16px 
+*/
+
 export const theme = createTheme({
   typography: {
     fontFamily: "Open Sans",
     h1: {
       fontFamily: "Open Sans",
-      fontSize: 80,
+      '@media (min-width:0px)': {
+        fontSize: '2rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '3rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '4rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '5rem',
+      },
       fontWeight: "bold",
     },
     h2: {
       fontFamily: "Open Sans",
-      fontSize: 60,
+      '@media (min-width:0px)': {
+        fontSize: '1.5rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '2.25rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '3rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '3.75rem',
+      },
       fontWeight: "bold",
     },
     h3: {
       fontFamily: "Open Sans",
-      fontSize: 30,
+      '@media (min-width:0px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '1.125rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.5rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.875rem',
+      },
       fontWeight: "bold",
     },
     h4: {
       fontFamily: "Open Sans",
-      fontSize: 24,
+      '@media (min-width:0px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.2rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.5rem',
+      },
       fontWeight: "bold",
     },
     large: {
       fontFamily: "Open Sans",
-      fontSize: 24,
+      '@media (min-width:0px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.2rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.5rem',
+      },
     },
     medeium: {
       fontFamily: "Open Sans",
-      fontSize: 20,
+      '@media (min-width:0px)': {
+        fontSize: '0.5rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.75rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.25rem',
+      },
     },
     caption: {
       fontFamily: "Open Sans",
-      fontSize: 18,
+      '@media (min-width:0px)': {
+        fontSize: '0.4rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1rem',
+      },
       textTransform: "uppercase",
     },
     normal: {
       fontFamily: "Open Sans",
-      fontSize: 16,
+      '@media (min-width:0px)': {
+        fontSize: '0.4rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1rem',
+      },
     },
     small: {
       fontFamily: "Open Sans",
-      fontSize: 12,
+      '@media (min-width:0px)': {
+        fontSize: '0.3rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.45rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '0.75rem',
+      },
     },
     largeSemibold: {
       fontFamily: "Open Sans",
-      fontSize: 24,
+      '@media (min-width:0px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.2rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.5rem',
+      },
       fontWeight: "medium",
     },
     medeiumSemibold: {
       fontFamily: "Open Sans",
-      fontSize: 20,
+      '@media (min-width:0px)': {
+        fontSize: '0.5rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.75rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1.25rem',
+      },
       fontWeight: "medium",
     },
     captionSemibold: {
       fontFamily: "Open Sans",
-      fontSize: 18,
+      '@media (min-width:0px)': {
+        fontSize: '0.4rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1rem',
+      },
       fontWeight: "medium",
       textTransform: "uppercase",
     },
     normalSemibold: {
       fontFamily: "Open Sans",
-      fontSize: 16,
+      '@media (min-width:0px)': {
+        fontSize: '0.4rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.8rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '1rem',
+      },
       fontWeight: "medium",
     },
     smallSemibold: {
       fontFamily: "Open Sans",
-      fontSize: 12,
+      '@media (min-width:0px)': {
+        fontSize: '0.3rem',
+      },
+      '@media (min-width:600px)': {
+        fontSize: '0.45rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.6rem',
+      },
+      '@media (min-width:1200px)': {
+        fontSize: '0.75rem',
+      },
       fontWeight: "medium",
     },
   },

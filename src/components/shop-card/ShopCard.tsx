@@ -18,7 +18,6 @@ const ResponsiveCard = styled(Card)(({ theme }) => ({
   background: "black",
   border: '1px solid #E9052F',
   width: 350,
-  // height: 500
 }));
 
 const ShopCard = (props: ShopCardProps) => (
@@ -33,7 +32,7 @@ const ShopCard = (props: ShopCardProps) => (
       <Typography gutterBottom variant="h3" component="div" sx={{ width: '100%', color: '#E9052F', textAlign: 'center' }}>
         {props.title}
       </Typography>
-      <Typography gutterBottom variant="body1" component="div" sx={{ width: '100%', color: '#fff', textAlign: 'center' }}>
+      <Typography gutterBottom variant="normal" component="div" sx={{ width: '100%', color: '#fff', textAlign: 'center' }}>
         {props.body}
       </Typography>
     </CardContent>
