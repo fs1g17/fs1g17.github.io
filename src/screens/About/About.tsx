@@ -144,56 +144,9 @@ const About = () => {
           </Box>
         </ImageInfo>
       </CenteredBox>
-      {/* <CenteredBox>
-        <RedText variant="h2">Workout. Nutrition. Motivation.</RedText>
-      </CenteredBox>
-      <CenteredBox marginBottom="200px">
-        <InfoBox>
-          <Box
-            display="flex"
-            flexDirection="column"
-            width={730}
-            marginRight="64px"
-          >
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              Do you want to learn what it takes to train like a professional
-              athlete and get the results that you always desired?
-            </WhiteText>
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              It takes tremendous amount of discipline and resilience in order
-              to adapt and succeed.
-            </WhiteText>
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              How do YOU get there?
-            </WhiteText>
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              No bullshit approach but consistency, hard work (in and outside
-              the gym) and smart programming.
-            </WhiteText>
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              Nobody can do the work for you, you get what you put in. This
-              being said the journey doesn’t have to be lonely and confusing
-              with a professional by your side!
-            </WhiteText>
-            <WhiteText variant="largeSemibold" marginTop="16px">
-              If you want to look like a Greek God, you have to become one.
-            </WhiteText>
-          </Box>
-          <img src={about2} alt="Adam Mikietinski" width={394} height={819} />
-        </InfoBox>
-        <CenteredBox>
-          <WhiteText variant="h1">Are you ready?</WhiteText>
-        </CenteredBox>
-        <RedButton sx={{ marginTop: "16px" }}>
-          <Typography variant="h3" marginX="48px">
-            LEARN MORE
-          </Typography>
-        </RedButton>
-      </CenteredBox> */}
-
-      {/* <CenteredBox marginBottom="200px">
+      <CenteredBox marginBottom="40px">
         <MailChimpFormContainer />
-      </CenteredBox> */}
+      </CenteredBox>
     </>
   );
 };
