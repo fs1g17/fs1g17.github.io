@@ -18,10 +18,11 @@ const ShopGrid = ({ shopCards }: ShopGridProps) => {
     <div style={{ width: '80%', marginLeft: 'auto', marginRight: 'auto', marginTop: 80 }}>
       <Grid
         container
-        rowSpacing={1}
+        rowSpacing={4}
         columnSpacing={{ xs: 0, sm: 2, md: 3, lg: 4 }}
         alignItems="center"
         justifyContent="center"
+        paddingBottom={4}
       >
         {shopCards.map(shopCard => (
           <Grid item>

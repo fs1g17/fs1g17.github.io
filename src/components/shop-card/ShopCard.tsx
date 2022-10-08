@@ -17,7 +17,14 @@ export interface ShopCardProps {
 const ResponsiveCard = styled(Card)(({ theme }) => ({
   background: "black",
   border: '1px solid #E9052F',
-  width: 350,
+  // width: 350,
+  minWidth: 300,
+  [theme.breakpoints.up('xs')]: {
+    width: '100vw',
+  }, 
+  [theme.breakpoints.up('sm')]: {
+    width: 350,
+  }, 
 }));
 
 const ShopCard = (props: ShopCardProps) => (
