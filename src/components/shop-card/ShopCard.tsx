@@ -29,12 +29,12 @@ const ShopCard = (props: ShopCardProps) => (
       alt="card image"
     />
     <CardContent sx={{ height: 120 }}>
-      <Typography gutterBottom variant="h3" component="div" sx={{ width: '100%', color: '#E9052F', textAlign: 'center' }}>
+      <div style={{ fontFamily: "Open Sans", fontSize: 30, fontWeight: "bold", width: '100%', color: '#E9052F', textAlign: 'center', marginBottom: 8 }}>
         {props.title}
-      </Typography>
-      <Typography gutterBottom variant="normal" component="div" sx={{ width: '100%', color: '#fff', textAlign: 'center' }}>
+      </div>
+      <div style={{ fontFamily: "Open Sans", fontSize: 16, width: '100%', color: '#fff', textAlign: 'center' }}>
         {props.body}
-      </Typography>
+      </div>
     </CardContent>
     <CardActions>
       <Box width="100%" display="flex" >
