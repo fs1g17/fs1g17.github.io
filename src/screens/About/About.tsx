@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import {
   Typography,
@@ -10,7 +10,7 @@ import {
 
 import about1 from "../../static/images/about_1.png";
 import about2 from "../../static/images/about_2.png";
-import { RedButton } from "../../components";
+import { ImageInfo, RedButton } from "../../components";
 import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
@@ -24,22 +24,44 @@ const RedText = styled(Typography)<TypographyProps>(({ theme }) => ({
 const CenteredBox = styled(Box)<BoxProps>(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  marginTop: 200,
+
+  [theme.breakpoints.up('xs')]: {
+    marginTop: 110,
+  },
+  [theme.breakpoints.up('sm')]: {
+    marginTop: 160,
+  },
+  [theme.breakpoints.up('md')]: {
+    marginTop: 210,
+  },
+  [theme.breakpoints.up('lg')]: {
+    marginTop: 260,
+  },
   marginLeft: "auto",
   marginRight: "auto",
   alignItems: "center",
+  width: '100vw'
 }));
+
+/*
+up to 900 px, I went everything as a column 
+only spread out if the width is greater than 900px
+*/
 
 const InfoBox = styled(Box)<BoxProps>(({ theme }) => ({
   display: "flex",
-  flexDirection: "row",
-  marginTop: 100,
-  marginLeft: "auto",
-  marginRight: "auto",
+  [theme.breakpoints.up('xs')]: {
+    flexDirection: 'column',
+  },
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
   alignItems: "flex-end",
 }));
 
-const About: FC = () => {
+const About = () => {
   return (
     <>
       <CenteredBox>
@@ -47,13 +69,16 @@ const About: FC = () => {
         <WhiteText variant="h1">Permanentely.</WhiteText>
       </CenteredBox>
       <CenteredBox>
-        <InfoBox>
-          <img src={about1} alt="Adam Mikietinski" height={734} width={568} />
+        <ImageInfo
+          img={about1}
+          imgAlt="Adam Mikietinski"
+          mdMaxWidth={500}
+          lgMaxWidth={600}
+        >
           <Box
             display="flex"
             flexDirection="column"
-            width={544}
-            marginLeft="64px"
+            width="100%"
           >
             <WhiteText variant="h2">ADAM MIKIETINSKI</WhiteText>
             <RedText variant="h3" marginTop="48px">
@@ -78,9 +103,48 @@ const About: FC = () => {
               </li>
             </ul>
           </Box>
-        </InfoBox>
+        </ImageInfo>
       </CenteredBox>
       <CenteredBox>
+        <ImageInfo
+          img={about2}
+          imgAlt="Adam Mikietinski"
+          mdMaxWidth={400}
+          lgMaxWidth={500}
+          imageAlignment="right"
+        >
+          <Box
+            display="flex"
+            flexDirection="column"
+            width="100%"
+          >
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              Do you want to learn what it takes to train like a professional
+              athlete and get the results that you always desired?
+            </WhiteText>
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              It takes tremendous amount of discipline and resilience in order
+              to adapt and succeed.
+            </WhiteText>
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              How do YOU get there?
+            </WhiteText>
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              No bullshit approach but consistency, hard work (in and outside
+              the gym) and smart programming.
+            </WhiteText>
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              Nobody can do the work for you, you get what you put in. This
+              being said the journey doesn’t have to be lonely and confusing
+              with a professional by your side!
+            </WhiteText>
+            <WhiteText variant="largeSemibold" marginTop="16px">
+              If you want to look like a Greek God, you have to become one.
+            </WhiteText>
+          </Box>
+        </ImageInfo>
+      </CenteredBox>
+      {/* <CenteredBox>
         <RedText variant="h2">Workout. Nutrition. Motivation.</RedText>
       </CenteredBox>
       <CenteredBox marginBottom="200px">
@@ -125,10 +189,11 @@ const About: FC = () => {
             LEARN MORE
           </Typography>
         </RedButton>
-      </CenteredBox>
-      <CenteredBox marginBottom="200px">
+      </CenteredBox> */}
+
+      {/* <CenteredBox marginBottom="200px">
         <MailChimpFormContainer />
-      </CenteredBox>
+      </CenteredBox> */}
     </>
   );
 };
