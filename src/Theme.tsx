@@ -2,7 +2,7 @@ import React from "react";
 import "./main.css";
 
 import { createTheme } from "@mui/material/styles";
-import {TypographyStyleOptions} from '@mui/material/styles/createTypography';
+import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
@@ -99,7 +99,7 @@ export const theme = createTheme({
     h3: {
       fontFamily: "Open Sans",
       '@media (min-width:0px)': {
-        fontSize: '0.75rem',
+        fontSize: '1rem',
       },
       '@media (min-width:600px)': {
         fontSize: '1.125rem',
