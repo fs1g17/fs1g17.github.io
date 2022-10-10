@@ -13,11 +13,10 @@ interface NavbarLinkProps {
   path: string;
   label: string;
   color: string;
-  onClick: () => void;
 }
 
-const NavbarLink: FC<NavbarLinkProps> = ({ path, label, color, onClick }) => (
-  <StyledLink to={path} onClick={onClick}>
+const NavbarLink: FC<NavbarLinkProps> = ({ path, label, color }) => (
+  <StyledLink to={path}>
     <Typography variant="largeSemibold" color={color}>
       {label}
     </Typography>
