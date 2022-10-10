@@ -55,7 +55,9 @@ const BlogList: FC<BlogListProps> = ({ articles }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: 1,
+        width: '100%',
+        padding: 0,
+        // padding: 1,
       }}
     >
       <ArticleColumn>

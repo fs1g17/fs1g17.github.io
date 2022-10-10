@@ -14,11 +14,13 @@ export interface ArticleCardProps {
 
 const ResponsiveCard = styled(Card)(({ theme }) => ({
   background: "red",
-  [theme.breakpoints.up("md")]: {
-    width: 700,
+  [theme.breakpoints.up("sm")]: {
+    width: 600,
   },
   [theme.breakpoints.down("sm")]: {
-    width: 350,
+    width: "100%",
+    minWidth: 300,
+    borderRadius: 0,
   },
 }));
 
