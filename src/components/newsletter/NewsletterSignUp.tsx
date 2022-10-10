@@ -138,9 +138,9 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
         </CenteredBox>
         <CenteredBox marginTop="32px">
           <RedButton sx={{ width: "300px" }} onClick={handleSubmit}>
-            <Typography variant="captionSemibold">Subscribe</Typography>
+            <Typography variant="largeSemibold">SUBSCRIBE</Typography>
           </RedButton>
-          <Typography variant="smallSemibold" marginTop="8px">
+          <Typography variant="normalSemibold" marginTop="8px">
             Unsubscribe at any time
           </Typography>
         </CenteredBox>

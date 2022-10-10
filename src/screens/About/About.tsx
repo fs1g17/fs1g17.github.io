@@ -27,12 +27,14 @@ const CenteredBox = styled(Box)<BoxProps>(({ theme }) => ({
 
   [theme.breakpoints.up('xs')]: {
     marginTop: 110,
+    width: '100%',
   },
   [theme.breakpoints.up('sm')]: {
     marginTop: 160,
   },
   [theme.breakpoints.up('md')]: {
     marginTop: 210,
+    width: '80%',
   },
   [theme.breakpoints.up('lg')]: {
     marginTop: 260,
