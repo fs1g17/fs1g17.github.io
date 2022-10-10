@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { Box, CardActions } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { RedButton } from '../button';
+import { Link } from 'react-router-dom';
 
 export interface ShopCardProps {
   imageUrl: string;
@@ -14,14 +15,15 @@ export interface ShopCardProps {
 }
 
 const ResponsiveCard = styled(Card)(({ theme }) => ({
-  background: "black",
-  border: '1px solid #E9052F',
+  background: "white",
   minWidth: 300,
   [theme.breakpoints.up('xs')]: {
     width: '100vw',
+    borderRadius: 0,
   },
   [theme.breakpoints.up('sm')]: {
     width: 350,
+    borderRadius: 5,
   },
 }));
 
@@ -37,14 +39,14 @@ const ShopCard = (props: ShopCardProps) => (
       <div style={{ fontFamily: "Open Sans", fontSize: 30, fontWeight: "bold", width: '100%', color: '#E9052F', textAlign: 'center', marginBottom: 8 }}>
         {props.title}
       </div>
-      <div style={{ fontFamily: "Open Sans", fontSize: 16, width: '100%', color: '#fff', textAlign: 'center' }}>
+      <div style={{ fontFamily: "Open Sans", fontSize: 16, width: '100%', color: 'black', textAlign: 'center' }}>
         {props.body}
       </div>
     </CardContent>
     <CardActions>
-      <Box width="100%" display="flex" >
-        <RedButton sx={{ borderRadius: 0, marginLeft: 'auto' }} href={props.url}>Learn More</RedButton>
-      </Box>
+      <Link to={props.url} style={{ textDecoration: 'none', marginLeft: 'auto', marginRight: 8, marginBottom: 8 }}>
+        <RedButton sx={{ borderRadius: 0 }}>Learn More</RedButton>
+      </Link>
     </CardActions>
   </ResponsiveCard>
 );
