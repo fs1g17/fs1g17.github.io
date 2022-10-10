@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import '../../main.css';
 
 import { styled } from "@mui/material/styles";
 import { Box, BoxProps } from "@mui/system";
@@ -101,7 +102,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
 
   return (
     <NewsletterBox>
-      {window.innerWidth >= 900 && <img src={newsletterimg} alt="Adam Mikietinski" height={"100%"} />}
+      <img src={newsletterimg} alt="Adam Mikietinski" className="NewsletterSignUp-image"/>
       <CenteredBox
         sx={{
           '@media (min-width:0px)': {

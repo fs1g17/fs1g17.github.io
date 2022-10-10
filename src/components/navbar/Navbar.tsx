@@ -48,10 +48,6 @@ const navItems: NavItem[] = [
     path: "/shop",
     label: "Shop"
   },
-  {
-    path: "/contact",
-    label: "Contact"
-  },
 ]
 
 const Navbar: FC = () => {
@@ -105,13 +101,12 @@ const Navbar: FC = () => {
           <Typography
             variant="h4"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}
           >
-            Navbar
+            Simatriux
           </Typography>
           <Box sx={{ marginLeft: "auto", display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
             {navItems.map(({ path, label }) => (
-              <NavbarLink path={path} label={label} color={getColor(path)} />
+              <NavbarLink path={path} label={label} color={getColor(path)} onClick={handleDrawerToggle}/>
             ))}
           </Box>
         </Toolbar>
