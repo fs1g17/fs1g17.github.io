@@ -7,12 +7,38 @@
 }
 
 @media screen and (min-width: 0px) and (max-width: 899px) {
-  .NewsletterSignUp-image { display: none };
-  .ImageInfo-image { width: '100%' }
-  #about-img1 { width: 100%; }
+  .NewsletterSignUp-image {
+    display: none
+  }
+
+  .ImageInfo-image {
+    width: '100%'
+  }
+
+  #about-img1 {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 900px) {
-  .NewsletterSignUp-image { display: block };
-  #about-img1 { max-width: 600px; }
+  .NewsletterSignUp-image {
+    display: block
+  }
+
+  #about-img1 {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ShopSection-image {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .ShopSection-image {
+    display: block;
+    height: 100%;
+  }
 }
