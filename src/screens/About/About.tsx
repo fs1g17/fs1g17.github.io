@@ -100,17 +100,13 @@ const About = () => {
           <WhiteText variant="largeSemibold" marginTop="16px">
             I will help you get where you to be with:
           </WhiteText>
-          <ul>
-            <li>
-              <WhiteText variant="large">Workout plans</WhiteText>
-            </li>
-            <li>
-              <WhiteText variant="large">Nutrition plans</WhiteText>
-            </li>
-            <li>
-              <WhiteText variant="large">1 on 1 coaching</WhiteText>
-            </li>
-          </ul>
+
+          <WhiteText variant="large"> - Workout plans</WhiteText>
+
+          <WhiteText variant="large"> - Nutrition plans</WhiteText>
+
+          <WhiteText variant="large"> - 1 on 1 coaching</WhiteText>
+
         </SectionText>
       </Section>
       <Section
