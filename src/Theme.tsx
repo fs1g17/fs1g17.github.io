@@ -1,5 +1,4 @@
-import React from "react";
-import "./main.css";
+import "main.css";
 
 import { createTheme } from "@mui/material/styles";
 import { TypographyStyleOptions } from '@mui/material/styles/createTypography';

@@ -5,8 +5,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-import img from '../../../static/images/shop-card-img-3.png';
-import { ShopSection, YellowButton } from '../../../components';
+import img from 'static/images/shop-card-img-3.png';
+import { ShopSection, YellowButton } from 'components';
 
 interface SessionInfo {
   url: string;

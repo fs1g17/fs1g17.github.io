@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Box } from '@mui/material';
 
-import img from '../../../static/images/shop-card-img-1.png';
-import { ShopSection, YellowButton } from '../../../components';
+import img from 'static/images/shop-card-img-1.png';
+import { ShopSection, YellowButton } from 'components';
 
 const OnlineCoaching = () => {
   return (

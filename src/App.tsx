@@ -1,21 +1,20 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 
-import { theme } from "./Theme";
-import { Navbar } from "./components";
-import About from "./screens/about/About";
-import Blog from "./screens/blog/Blog";
-import Shop from "./screens/shop/Shop";
-import OnlineCoaching from "./screens/shop/online-coaching/OnlineCoaching";
-import AppMembership from "./screens/shop/app-membership/AppMembership";
-import Sessions from "./screens/shop/sessions/Sessions";
-import StrengthCamp from "./screens/shop/strength-camp/StrengthCamp";
+import { theme } from "Theme";
+import { Navbar } from "components";
+import About from "screens/About/About";
+import Blog from "screens/Blog/Blog";
+import Shop from "screens/Shop/Shop";
+import OnlineCoaching from "screens/Shop/online-coaching/OnlineCoaching";
+import AppMembership from "screens/Shop/app-membership/AppMembership";
+import Sessions from "screens/Shop/Sessions/Sessions";
+import StrengthCamp from "screens/Shop/strength-camp/StrengthCamp";
 
 function App() {
-    return (
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>

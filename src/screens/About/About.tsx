@@ -7,11 +7,11 @@ import {
   BoxProps,
 } from "@mui/material";
 
-import about1 from "../../static/images/about_1.png";
-import about2 from "../../static/images/about_2.png";
-import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
+import about1 from "static/images/about_1.png";
+import about2 from "static/images/about_2.png";
+import MailChimpFormContainer from "components/newsletter/MailchimpFormContainer";
 
-import '../../main.css';
+import 'main.css';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
