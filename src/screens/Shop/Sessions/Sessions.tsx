@@ -6,7 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 import img from 'static/images/shop-card-img-3.png';
-import { ShopSection, YellowButton } from 'components';
+import { ShopSection, RedButton } from '../../../components';
 
 interface SessionInfo {
   url: string;
@@ -98,9 +98,9 @@ const Sessions = () => {
             );
           })}
         </Menu>
-        <YellowButton href={sessions[numberSessions].url} sx={{ borderRadius: 0, fontSize: 24, width: 300, mt: 4 }}>
+        <RedButton href={sessions[numberSessions].url} sx={{ borderRadius: 0, fontSize: 24, width: 300, mt: 4 }}>
           Buy Now
-        </YellowButton>
+        </RedButton>
       </Box>
     </ShopSection>
   );
