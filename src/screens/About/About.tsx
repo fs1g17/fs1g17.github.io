@@ -40,7 +40,7 @@ const Container = styled(Box)<BoxProps>(({ theme }) => ({
   },
   [theme.breakpoints.up('lg')]: {
     marginTop: 260,
-    width: '60%',
+    width: '70%',
   },
 }));
 
