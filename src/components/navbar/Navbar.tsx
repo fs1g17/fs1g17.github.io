@@ -106,7 +106,7 @@ const Navbar: FC = () => {
           </Typography>
           <Box sx={{ marginLeft: "auto", display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
             {navItems.map(({ path, label }) => (
-              <NavbarLink path={path} label={label} color={getColor(path)} onClick={handleDrawerToggle}/>
+              <NavbarLink path={path} label={label} color={getColor(path)} />
             ))}
           </Box>
         </Toolbar>
