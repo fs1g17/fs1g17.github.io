@@ -7,14 +7,12 @@ import {
   Typography,
   Toolbar,
   Box,
-  List,
-  ListItem,
   IconButton,
-  Drawer
+  Drawer,
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import NavbarLink from "./NavbarLink";
-import { Link } from "react-router-dom";
+import MyDrawer from "./MyDrawer";
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   position: "fixed",
@@ -25,7 +23,7 @@ const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   margin: 0,
 }));
 
-interface NavItem {
+export interface NavItem {
   path: string;
   label: string;
 }
@@ -45,28 +43,6 @@ const navItems: NavItem[] = [
     label: "Shop"
   },
 ]
-
-interface MyDrawerProps {
-  onClose: () => void;
-}
-
-const MyDrawer = ({ onClose }: MyDrawerProps) => {
-  return (
-    <Box sx={{ textAlign: 'center', marginTop: '60px' }}>
-      <List>
-        {navItems.map(({ path, label }) => (
-          <ListItem key={path} >
-            <Link to={path} onClick={onClose} style={{ textDecoration: 'none' }}>
-              <Typography variant="largeSemibold" sx={{ color: 'black'}}>
-                {label}
-              </Typography>
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  )
-}
 
 const Navbar: FC = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -109,7 +85,7 @@ const Navbar: FC = () => {
           ModalProps={{ keepMounted: true }}
           sx={{ display: { xs: 'block', sm: 'block', md: 'none' }, '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth } }}
         >
-          <MyDrawer onClose={handleDrawerToggle} />
+          <MyDrawer onClose={handleDrawerToggle} navItems={navItems} />
         </Drawer>
       </Box>
     </>
