@@ -43,8 +43,8 @@ const BlogList: FC<BlogListProps> = ({ articles }) => {
         <ArticleColumn>
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
-          {/* <ArticleCardSkeleton />
-          <ArticleCardSkeleton /> */}
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
         </ArticleColumn>
       </Container>
     );

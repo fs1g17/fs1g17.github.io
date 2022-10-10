@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { useLocation } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
 import {
@@ -7,9 +6,7 @@ import {
   AppBarProps,
   Typography,
   Toolbar,
-  useTheme,
   Box,
-  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -19,6 +16,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import NavbarLink from "./NavbarLink";
+import { Link } from "react-router-dom";
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   position: "fixed",
@@ -50,40 +48,34 @@ const navItems: NavItem[] = [
   },
 ]
 
-const Navbar: FC = () => {
-  const theme = useTheme();
-  const location = useLocation();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+interface MyDrawerProps {
+  onClose: () => void;
+}
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
+const MyDrawer = ({ onClose }: MyDrawerProps) => {
+  return (
+    <Box sx={{ textAlign: 'center', marginTop: '60px' }}>
       <List>
         {navItems.map(({ path, label }) => (
-          <ListItem key={path} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} href={path}>
-              <ListItemText primary={label} />
-            </ListItemButton>
+          <ListItem key={path} >
+            <Link to={path} onClick={onClose} style={{ textDecoration: 'none' }}>
+              <Typography variant="largeSemibold" sx={{ color: 'black'}}>
+                {label}
+              </Typography>
+            </Link>
           </ListItem>
         ))}
       </List>
     </Box>
-  );
+  )
+}
 
-  const getColor = (targetLocation: string) => {
-    return location.pathname.toString().includes(targetLocation)
-      ? theme.palette.secondary.main
-      : "#FFFFFF";
+const Navbar: FC = () => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(prev => !prev);
   };
-
-  const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
     <>
@@ -106,21 +98,20 @@ const Navbar: FC = () => {
           </Typography>
           <Box sx={{ marginLeft: "auto", display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
             {navItems.map(({ path, label }) => (
-              <NavbarLink path={path} label={label} color={getColor(path)} />
+              <NavbarLink path={path} label={label} />
             ))}
           </Box>
         </Toolbar>
       </StyledAppBar>
       <Box component="nav">
         <Drawer
-          container={container}
-          variant="temporary"
           open={mobileOpen}
+          variant="temporary"
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{ display: { xs: 'block', sm: 'block', md: 'none' }, '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth } }}
         >
-          {drawer}
+          <MyDrawer onClose={handleDrawerToggle} />
         </Drawer>
       </Box>
     </>
