@@ -9,8 +9,6 @@ import {
   Box,
   List,
   ListItem,
-  ListItemButton,
-  ListItemText,
   IconButton,
   Drawer
 } from "@mui/material";
