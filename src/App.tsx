@@ -8,7 +8,6 @@ import { theme } from "./Theme";
 import { Navbar } from "./components";
 import About from "./screens/about/About";
 import Blog from "./screens/blog/Blog";
-import Contact from "./screens/contact/Contact";
 import Shop from "./screens/shop/Shop";
 import OnlineCoaching from "./screens/shop/online-coaching/OnlineCoaching";
 import AppMembership from "./screens/shop/app-membership/AppMembership";
@@ -24,7 +23,6 @@ function App() {
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/online_coaching' element={<OnlineCoaching />} />
           <Route path="/shop/app_membership" element={<AppMembership />}/>

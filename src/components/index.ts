@@ -5,4 +5,3 @@ export * from "./button";
 export * from "./red-spinner";
 export * from "./shop-card";
 export * from "./shop-section";
-export * from "./image-info";
