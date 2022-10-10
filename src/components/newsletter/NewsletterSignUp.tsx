@@ -19,12 +19,21 @@ import { RedButton } from "../../components";
 import { NameFormFields } from "react-mailchimp-subscribe";
 
 const NewsletterBox = styled(Box)<BoxProps>(({ theme }) => ({
-  width: "800px",
-  height: "600px",
+  minWidth: 300,
+  [theme.breakpoints.up('xs')]: {
+    width: "100vw",
+    marginTop: "40px",
+  },
+  [theme.breakpoints.up('sm')]: {
+    width: 400,
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 800,
+    marginTop: "100px",
+  },
   backgroundColor: "#FFFFFF",
   marginLeft: "auto",
   marginRight: "auto",
-  marginTop: "100px",
   display: "flex",
   flexDirection: "row",
 }));
@@ -70,7 +79,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
   const [email, setEmail] = useState<string>('');
 
   useEffect(() => {
-    if(status === 'success') {
+    if (status === 'success') {
       setName('');
       setSurname('');
       setEmail('');
@@ -92,8 +101,17 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
 
   return (
     <NewsletterBox>
-      <img src={newsletterimg} alt="Adam Mikietinski" height={"100%"} />
-      <CenteredBox marginY="auto">
+      {window.innerWidth >= 900 && <img src={newsletterimg} alt="Adam Mikietinski" height={"100%"} />}
+      <CenteredBox
+        sx={{
+          '@media (min-width:0px)': {
+            marginY: theme.spacing(2),
+          },
+          '@media (min-width:900px)': {
+            marginY: 'auto',
+          }
+        }}
+      >
         <CenteredBox>
           <Typography variant="h2" sx={{ color: theme.palette.secondary.main }}>
             Newsletter
@@ -120,9 +138,9 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
         </CenteredBox>
         <CenteredBox marginTop="32px">
           <RedButton sx={{ width: "300px" }} onClick={handleSubmit}>
-            <Typography variant="captionSemibold">Subscribe</Typography>
+            <Typography variant="largeSemibold">SUBSCRIBE</Typography>
           </RedButton>
-          <Typography variant="smallSemibold" marginTop="8px">
+          <Typography variant="normalSemibold" marginTop="8px">
             Unsubscribe at any time
           </Typography>
         </CenteredBox>
